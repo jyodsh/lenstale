@@ -1,21 +1,26 @@
 import * as React from "react"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import "../css/gallery.css"
 
 const Gallery = () => {
-    const images = useGallery()
-    if(images.length > 0) {
-      return null;
-    }
-
-    return (
-        <div className="gallery" >
-            {images.map(({ id, fluid }) => (
-                <Img key={id} fluid={fluid} />
-            ))}
-        </div>
-    )
+  const images = useGallery()
+  if (images.length < 1) {
+    return null;
+  }
+  const columnsCountBreakPoints = { 350: 1, 750: 2 };
+  return (
+    <div className="gallery" >
+      <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
+        <Masonry columnsCount={2} gutter="2em">
+          {images.map(({ id, fluid }) => (
+            <Img key={id} fluid={fluid} />
+          ))}
+        </Masonry>
+      </ResponsiveMasonry>
+    </div>
+  )
 }
 
 export default Gallery;
