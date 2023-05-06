@@ -1,7 +1,14 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from "react";
+import { Link } from "gatsby";
+import {Burger, Menu } from "./Nav";
+import { useOnClickOutside } from "./Nav/hooks";
+import { ThemeProvider } from 'styled-components';
+import { theme } from "./Nav/Style";
 
 const Layout = ({ location, title, children }) => {
+  const [open, setOpen] = React.useState(false);
+  const node = React.useRef();
+  useOnClickOutside(node, () => setOpen(false));
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -19,10 +26,17 @@ const Layout = ({ location, title, children }) => {
       </Link>
     )
   }
-
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
+      <ThemeProvider theme={theme}>
+      <>
+      <div ref={node}>
+        <Burger open={open} setOpen={setOpen} />
+        <Menu open={open} setOpen={setOpen} />
+      </div>
+      </>
+    </ThemeProvider>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with
