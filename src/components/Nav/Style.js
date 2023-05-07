@@ -1,10 +1,10 @@
-import styled, { createGlobalStyle} from 'styled-components';
+import styled from 'styled-components';
 
 export const theme = {
   primaryDark: '#0D0C1D',
   primaryLight: '#EFFFFA',
   primaryHover: '#343078',
-  mobile: '576px',
+  mobile: '1020px',
 }
 export const StyledBurger = styled.button`
   position: absolute;
@@ -40,8 +40,6 @@ export const StyledBurger = styled.button`
     }
   }
 `;
-
-export const GlobalStyles = createGlobalStyle` `
 
 // Menu styles
 export const StyledMenu = styled.nav`

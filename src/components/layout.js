@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import {Burger, Menu } from "./Nav";
+import { Burger, Menu } from "./Nav";
 import { useOnClickOutside } from "./Nav/hooks";
 import { ThemeProvider } from 'styled-components';
 import { theme } from "./Nav/Style";
@@ -28,15 +28,20 @@ const Layout = ({ location, title, children }) => {
   }
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+      <div  className="header-wrapper">
       <ThemeProvider theme={theme}>
-      <>
-      <div ref={node}>
-        <Burger open={open} setOpen={setOpen} />
-        <Menu open={open} setOpen={setOpen} />
+        <>
+          <div class='menu-wrapper' ref={node}>
+            <Burger open={open} setOpen={setOpen} />
+            <Menu open={open} setOpen={setOpen} />
+          </div>
+        </>
+      </ThemeProvider>
+      
+      <div class="header-wrapper">
+        <header className="global-header">{header}</header>
       </div>
-      </>
-    </ThemeProvider>
+      </div>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with
