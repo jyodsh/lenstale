@@ -335,7 +335,8 @@ a:focus {
     display: flex;
   }
   .header-wrapper button {
-    position: inherit;
+    position: absolute;
+    z-index: 99999;
   }
   .menu-wrapper {
     width: 25%;
@@ -345,5 +346,8 @@ a:focus {
   }
   .main-heading {
     line-height: 0.1;
+  }
+  .menu-wrapper nav {
+    z-index:9999;
   }
 }
