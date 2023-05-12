@@ -331,4 +331,23 @@ a:focus {
   ol {
     list-style-position: inside;
   }
+  .header-wrapper{
+    display: flex;
+  }
+  .header-wrapper button {
+    position: absolute;
+    z-index: 99999;
+  }
+  .menu-wrapper {
+    width: 25%;
+  }
+  .header-wrapper {
+    width: 75%;
+  }
+  .main-heading {
+    line-height: 0.1;
+  }
+  .menu-wrapper nav {
+    z-index:9999;
+  }
 }
