@@ -4,6 +4,7 @@ import { Burger, Menu } from "./Nav";
 import { useOnClickOutside } from "./Nav/hooks";
 import { ThemeProvider } from 'styled-components';
 import { theme } from "./Nav/Style";
+import FocusLock from 'react-focus-lock';
 
 const Layout = ({ location, title, children }) => {
   const [open, setOpen] = React.useState(false);
@@ -28,19 +29,21 @@ const Layout = ({ location, title, children }) => {
   }
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <div  className="header-wrapper">
-      <ThemeProvider theme={theme}>
-        <>
-          <div class='menu-wrapper' ref={node}>
-            <Burger open={open} setOpen={setOpen} />
-            <Menu open={open} setOpen={setOpen} />
-          </div>
-        </>
-      </ThemeProvider>
-      
-      <div class="header-wrapper">
-        <header className="global-header">{header}</header>
-      </div>
+      <div className="header-wrapper">
+        <ThemeProvider theme={theme}>
+          <>
+            <div class='menu-wrapper' ref={node}>
+              <FocusLock disabled={!open}>
+                <Burger open={open} setOpen={setOpen} />
+                <Menu open={open} setOpen={setOpen} />
+              </FocusLock>
+            </div>
+          </>
+        </ThemeProvider>
+
+        <div class="header-wrapper">
+          <header className="global-header">{header}</header>
+        </div>
       </div>
       <main>{children}</main>
       <footer>
