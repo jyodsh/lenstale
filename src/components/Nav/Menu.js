@@ -11,11 +11,9 @@ const Menu = ({ open, ...props }) => {
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
 
       <a href="/" tabIndex={tabIndex}>
-        <span aria-hidden="true"></span>
         ::.Lens Tale
       </a>
       <a href="/stream" tabIndex={tabIndex}>
-        <span aria-hidden="true"></span>
         Stream
       </a>
     </StyledMenu>
