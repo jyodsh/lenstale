@@ -7,9 +7,12 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
-    title: `::. LensTale`,
+    title: `LensTale`,
     author: {
       name: `Jyothish Sebastian`,
       summary: `Stories through a myopic lens`,
@@ -31,6 +34,16 @@ module.exports = {
    `gatsby-transformer-sharp`,
    `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
+    {
+      resolve: "gatsby-source-flickr",
+      options: {
+        name: 'Flickr',
+        api_key: process.env.FLICKR_API_KEY,
+        photoset_id: process.env.FLICKR_PHOTOSET_ID,
+        user_id:'69861048@N05',
+        method: 'flickr.photosets.getPhotos',
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

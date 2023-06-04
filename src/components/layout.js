@@ -41,7 +41,7 @@ const Layout = ({ location, title, children }) => {
           </>
         </ThemeProvider>
 
-        <div class="header-wrapper">
+        <div>
           <header className="global-header">{header}</header>
         </div>
       </div>
