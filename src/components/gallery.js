@@ -9,11 +9,11 @@ const Gallery = () => {
   if (images.length < 1) {
     return null;
   }
-  const columnsCountBreakPoints = { 350: 1, 750: 2 };
+  const columnsCountBreakPoints = { 350: 1, 750: 1 };
   return (
     <div className="gallery" >
       <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
-        <Masonry columnsCount={2} gutter="2em">
+        <Masonry columnsCount={1} gutter="2em">
           {images.map(({ id, fluid }) => (
             <Img key={id} fluid={fluid} />
           ))}

@@ -41,7 +41,6 @@ const useFlickrImages = () => {
       }
     }
   `);
-    console.log('data',data);
   return data.allFlickrPhoto.edges.map(node => ({
     id: node.node.id,
     title: node.node.title,
