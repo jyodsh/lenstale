@@ -1,5 +1,6 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+// import { StaticImage } from "gatsby-plugin-image"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import "../css/gallery.css"
 
@@ -9,7 +10,15 @@ const Flickr = () => {
     return null;
   }
   const staticImage = images.map((image) => {
-    return(<img src={image.url} alt={image.title} id={image.id} />);
+    return(
+    <img src={image.url} alt={image.title} id={image.id} />
+    // <StaticImage
+    //   src={image.url}
+    //   alt={image.title}
+    //   layout="FULL_WIDTH"
+    //   placeholder="BLURRED"
+    // />
+    );
   });
 
   const columnsCountBreakPoints = { 350: 1, 750: 2 };

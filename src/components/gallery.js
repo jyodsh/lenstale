@@ -1,11 +1,12 @@
 import * as React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { useStaticQuery, graphql } from "gatsby"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
 import "../css/gallery.css"
 
 const Gallery = () => {
-  const images = useGallery()
+  const images = useGallery();
+  console.log('images', images);
   if (images.length < 1) {
     return null;
   }
@@ -14,8 +15,8 @@ const Gallery = () => {
     <div className="gallery" >
       <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
         <Masonry columnsCount={1} gutter="2em">
-          {images.map(({ id, fluid }) => (
-            <Img key={id} fluid={fluid} />
+          {images.map(( img ) => (
+            <GatsbyImage id={img.id}  image={img.gatsbyImageData} alt='' />
           ))}
         </Masonry>
       </ResponsiveMasonry>
@@ -34,15 +35,15 @@ const useGallery = () => {
         nodes {
           id
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+              )
           }
         }
       }
     }
   `);
-
   return data.allFile.nodes.map(node => ({
     ...node.childImageSharp, // Note that we're spreading the childImageSharp object here
     id: node.id,

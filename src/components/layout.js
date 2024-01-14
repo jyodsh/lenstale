@@ -32,7 +32,7 @@ const Layout = ({ location, title, children }) => {
       <div className="header-wrapper">
         <ThemeProvider theme={theme}>
           <>
-            <div class='menu-wrapper' ref={node}>
+            <div className='menu-wrapper' ref={node}>
               <FocusLock disabled={!open}>
                 <Burger open={open} setOpen={setOpen} />
                 <Menu open={open} setOpen={setOpen} />

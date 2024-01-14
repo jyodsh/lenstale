@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "LensTale Blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "A photo blog powered by Gatsby and Markdown",
+  "version": "0.1.5",
+  "author": "Jyothish Sebastian",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
@@ -33,15 +33,6 @@
   "devDependencies": {
     "prettier": "^2.8.3",
     "dotenv": "^16.3.1"
-  },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
     "build": "gatsby build",
