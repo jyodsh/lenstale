@@ -1,3 +1,7 @@
+/* 
+*  REFERENCE CODE : https://css-tricks.com/hamburger-menu-with-a-side-of-react-hooks-and-styled-components/
+*/
+
 import styled from 'styled-components';
 
 export const theme = {
@@ -28,14 +32,14 @@ export const StyledBurger = styled.button`
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
-    :first-child {
+    &:first-child {
       transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
     }
-    :nth-child(2) {
+    &:nth-child(2) {
       opacity: ${({ open }) => open ? '0' : '1'};
       transform: ${({ open }) => open ? 'translateX(20px)' : 'translateX(0)'};
     }
-    :nth-child(3) {
+    &:nth-child(3) {
       transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
     }
   }
