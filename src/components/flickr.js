@@ -2,30 +2,26 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 // import { StaticImage } from "gatsby-plugin-image"
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
-import "../css/gallery.css"
+// import "../css/gallery.css"
 
 const Flickr = () => {
   const images = useFlickrImages()
   if (images.length < 1) {
     return null;
   }
-  const staticImage = images.map((image) => {
+  const staticImage = images.map((image, i) => {
     return(
-    <img src={image.url} alt={image.title} id={image.id} />
-    // <StaticImage
-    //   src={image.url}
-    //   alt={image.title}
-    //   layout="FULL_WIDTH"
-    //   placeholder="BLURRED"
-    // />
+    <img key={i} src={image.url} alt={image.title} id={image.id} 
+    style={{width: "100%", display: "flex"}}
+    />
     );
   });
 
-  const columnsCountBreakPoints = { 350: 1, 750: 2 };
+  const columnsCountBreakPoints = { 350: 1, 750: 2, 900:3 };
   return (
     <div className="gallery" >
       <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
-        <Masonry columnsCount={2} gutter="1em">
+        <Masonry  gutter="1em">
           {staticImage}
         </Masonry>
       </ResponsiveMasonry>
