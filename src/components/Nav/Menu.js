@@ -8,7 +8,10 @@ const MenuDescription = styled.span`
   color: #888;
   margin-top: 4px;
   display: block;
-  width: 150px;
+  width: 250px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: auto;
+  }
   overflow-wrap: break-word;
   text-transform: none;
 `;
@@ -26,7 +29,7 @@ const Menu = ({ open, ...props }) => {
       <a href="/stream" tabIndex={tabIndex}>
         Stream
         <MenuDescription>
-          Selection of photos from around the world.
+        Selection of photos from around the world.
         </MenuDescription>
       </a>
       <a href="/streets" tabIndex={tabIndex}>
