@@ -1,0 +1,13 @@
+/* lenstale/src/css/gallery.css */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Ensures space between images */
+}
+
+.gallery img {
+  margin-bottom: 24px; /* Adds space below each image */
+  width: 100%; /* Ensures images take full width of their container */
+  height: auto; /* Maintains aspect ratio */
+}

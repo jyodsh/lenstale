@@ -10,20 +10,23 @@ const Gallery = () => {
   if (images.length < 1) {
     return null;
   }
-  const columnsCountBreakPoints = { 350: 1, 750: 1, 900:3 };
+  
+  const columnsCountBreakPoints = { 350: 1, 750: 2, 900: 3 }; // Adjusted for better responsiveness
+
   return (
-    // <div className="gallery" >
+    <div style={{ padding: "1rem" }}>
       <ResponsiveMasonry 
         columnsCountBreakPoints={columnsCountBreakPoints}
-        gutterBreakpoints={{350: "12px", 750: "16px", 900: "24px"}}
-        gutter={"1.5em"}
+        gutterBreakpoints={{ 350: "12px", 750: "16px", 900: "24px" }}
+        gutter={"24px"} // Set a consistent gutter
       >
-          {images.map(( img, i ) => (
-            <GatsbyImage key={i} id={img.id}  image={img.gatsbyImageData}  />
-          ))}
-
+        {images.map((img, i) => (
+          <div key={i} style={{ marginBottom: "24px" }}> {/* Added margin for spacing */}
+            <GatsbyImage id={img.id} image={img.gatsbyImageData} alt="" />
+          </div>
+        ))}
       </ResponsiveMasonry>
-    // </div>
+    </div>
   )
 }
 
@@ -41,14 +44,14 @@ const useGallery = () => {
             gatsbyImageData(
               layout: FULL_WIDTH
               placeholder: BLURRED
-              )
+            )
           }
         }
       }
     }
   `);
   return data.allFile.nodes.map(node => ({
-    ...node.childImageSharp, // Note that we're spreading the childImageSharp object here
+    ...node.childImageSharp,
     id: node.id,
   }));
 };
