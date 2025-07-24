@@ -13,7 +13,7 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `LensTale`,
+    title: `lens tale`,
     author: {
       name: `Jyothish Sebastian`,
       summary: `Stories through a myopic lens`,

@@ -8,6 +8,8 @@ const Stream = ({ data, location  }) => {
   const siteTitle = data.site.siteMetadata.title
   return (
     <Layout location={location} title={siteTitle}>
+      <h3>STREAM </h3> 
+      <p>Selected images from around the world</p>
       <Gallery />
     </Layout>
   )
