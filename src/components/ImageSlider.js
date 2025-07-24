@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import "./imageSlider.css";
+import "../css/ImageSlider.css";
 
 const SLIDE_INTERVAL = 3000;
 
